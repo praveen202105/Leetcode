@@ -17,8 +17,8 @@ public:
 //          1,0
             // cout<<total<<" ";
             
-        int dirx[4]={0,-1,0,1};
-        int diry[4]={-1,0,1,0};
+        int dir[5]={0,-1,0,1,0};
+    
         vector<vector<int>>visited(n,vector<int>(m,0));
         int ans=0;
         while(q.size()){
@@ -34,7 +34,7 @@ public:
                     
                         
                         for(int d=0;d<4;d++){
-                            int dx=x+dirx[d],dy=y+diry[d];
+                            int dx=x+dir[d],dy=y+dir[d+1];
                             if(dx>=0 && dy>=0 && dx<n && dy<m && grid[dx][dy]==1 && !visited[dx][dy]){
                                 grid[dx][dy]=2;
                                 q.push({dx,dy});
@@ -44,7 +44,7 @@ public:
 
                     
                 }
-                                    if(!q.empty())ans+=1;
+                 if(!q.empty())ans+=1;
         }
         
         
