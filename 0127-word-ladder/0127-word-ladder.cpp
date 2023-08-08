@@ -4,7 +4,7 @@ public:
       map<string,int>mp,visited;
         
         for(auto i:wordList) mp[i]=0;
-        // if(mp.find(endWord)==mp.end()) return 0;
+        if(mp.find(endWord)==mp.end()) return 0;
          // set<string>visited;
          queue<string>q;
          q.push(beginWord);
