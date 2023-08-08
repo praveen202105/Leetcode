@@ -3,14 +3,14 @@ public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
       map<string,int>mp,visited;
         
-        for(auto i:wordList) mp[i]++;
+        for(auto i:wordList) mp[i]=0;
         // if(mp.find(endWord)==mp.end()) return 0;
          // set<string>visited;
          queue<string>q;
          q.push(beginWord);
-         visited[beginWord]++;
-        int level=1;
         
+        int level=1;
+        mp[beginWord]=1;
           while(!q.empty()){
               int s=q.size();
               for(int sz=0;sz<s;sz++){
@@ -23,10 +23,10 @@ public:
                       for(char al='a';al<='z';al++){
                           temp[i]=al;
                           // cout<<temp<<" ";
-                          if(mp[temp] && visited.find(temp)==visited.end()){
+                          if(mp.find(temp)!=mp.end() && mp[temp]==0){
                               q.push(temp);
-                              visited[temp]++;
-                              // cout<<q.front();
+                              mp[temp]=1;
+                              // cout<<q.front();0
                           }
                       }
                       // cout<<endl;
