@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void add(string no1,int n1,string no2,int n2,int c,string &ans){
+    void add(string &no1,int n1,string &no2,int n2,int c,string &ans){
         if(n1<0 && n2<0){
             if(c!=0){
                 ans.push_back('0'+c);
