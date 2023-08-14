@@ -1,12 +1,11 @@
 class Solution {
 public:
     string removeOccurrences(string s, string part) {
-       // int found=;
-        while(s.find(part)<s.size()){
-            s.erase(s.find(part),part.size());
-        }
-        
-        return s;
+        int f=s.find(part);
+        if(f<s.size())  s.erase(s.find(part),part.size());
+        else return s;
+       
+        return removeOccurrences(s,part);
         
     }
 };
