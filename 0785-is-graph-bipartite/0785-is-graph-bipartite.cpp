@@ -21,7 +21,7 @@ public:
              if(!visited[i]){
                  visited[i]=1;
                  q.push({i,!col});
-             }else if(color[i]!=-1 && color[i]!= !col){
+             }else if( color[i]==col){
                  return false;
              }
          }
