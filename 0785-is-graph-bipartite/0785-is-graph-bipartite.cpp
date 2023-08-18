@@ -5,23 +5,24 @@ public:
      vector<int>color(n,-1);
      vector<int>visited(n,0);
         
-     queue<pair<int,int>>q;
+     queue<int>q;
         
       for(int node=0;node<n;node++){  
           if(!visited[node]){
-          q.push({node,1});   
+          q.push(node);   
           visited[node]=1;
         
      while(!q.empty()){
-         auto t=q.front();
+         int n =q.front();
          q.pop();
-         int n=t.first,col=t.second;
-         color[n]=col;
+         
+         
          for(auto i:graph[n]){
              if(!visited[i]){
                  visited[i]=1;
-                 q.push({i,!col});
-             }else if( color[i]==col){
+                 color[i]=!color[n];
+                 q.push(i);
+             }else if( color[i]==color[n]){
                  return false;
              }
          }
